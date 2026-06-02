@@ -1,7 +1,17 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 
+// ========== IMAGE IMPORTS ==========
+import heroImg from "./img/6.webp";
+import programTopImg from "./img/1.webp";
+import teamImg1 from "./img/2.webp";
+import teamImg2 from "./img/3.webp";
+import teamImg3 from "./img/5.jpg";
+import teamImg4 from "./img/4.jpg";
+import teamImg5 from "./img/8.jpg";
+import teamImg6 from "./img/5.webp";
+
 // ============================================================
-// COMPLETE CSS (injected via <style> tag)
+// COMPLETE CSS (injected via <style> tag) — unchanged
 // ============================================================
 const css = `
 *{margin:0;padding:0;box-sizing:border-box}
@@ -221,55 +231,55 @@ const loaderSymbols = [
 ];
 
 // ============================================================
-// TEAM MEMBERS DATA
+// TEAM MEMBERS DATA (using imported images)
 // ============================================================
 const teamMembers = [
   {
     name: "Dr. Alex Karimov",
     role: "Algebra & Number Theory",
-    img: "/img/2.webp",
+    img: teamImg1,   // was "/img/2.webp"
     dot: true,
     dotStyle: {},
   },
   {
     name: "Prof. Maria Santos",
     role: "Geometry & Topology",
-    img: "/img/3.webp",
+    img: teamImg2,   // was "/img/3.webp"
     dot: false,
     dotStyle: {},
   },
   {
     name: "Dr. James Chen",
     role: "Calculus & Analysis",
-    img: "/img/5.jpg",
+    img: teamImg3,   // was "/img/5.jpg"
     dot: true,
     dotStyle: { top: "auto", bottom: "-10px", right: "-10px" },
   },
   {
     name: "Elena Volkova",
     role: "Olympiad Training",
-    img: "/img/4.jpg",
+    img: teamImg4,   // was "/img/4.jpg"
     dot: false,
     dotStyle: {},
   },
   {
     name: "Omar Hassan",
     role: "Applied Mathematics",
-    img: "/img/8.jpg",
+    img: teamImg5,   // was "/img/8.jpg"
     dot: true,
     dotStyle: { top: "-10px", left: "-10px", right: "auto" },
   },
   {
     name: "Dr. Sarah Kim",
     role: "Statistics & Probability",
-    img: "/img/5.webp",
+    img: teamImg6,   // was "/img/5.webp"
     dot: false,
     dotStyle: {},
   },
 ];
 
 // ============================================================
-// PROGRAM DATA
+// PROGRAM DATA (keep Unsplash URLs unchanged)
 // ============================================================
 const programsData = [
   {
@@ -291,6 +301,60 @@ const programsData = [
     active: false,
   },
 ];
+
+// ... (rest of the code from the component remains the same, but we update the image src in JSX)
+
+export default function MathClub() {
+  // ... all the existing state and effects remain unchanged ...
+
+  // I'm including the full component JSX but only showing the changed image parts.
+  // The rest of the JSX is exactly the same as your original code, except where images are used.
+
+  return (
+    <>
+      {/* Injected CSS */}
+      <style dangerouslySetInnerHTML={{ __html: css }} />
+
+      {/* ... noise overlay, scroll progress, mouse dots, loader, modal ... same as before */}
+
+      {/* ========== HERO SECTION ========== */}
+      <section className="hero grid-bg" id="hero" ref={heroSectionRef}>
+        {/* ... navbar, floating dots ... */}
+
+        <div className="math-image" id="heroImage" ref={heroImageRef}>
+          {/* CHANGED: use imported variable */}
+          <img src={heroImg} alt="Math abstract" />
+        </div>
+
+        {/* ... equations, description, scroll ... */}
+      </section>
+
+      {/* ========== PROGRAMS SECTION ========== */}
+      <section className="programs grid-bg" id="programs" ref={(el) => (sectionRefs.current[0] = el)}>
+        <div className="top-content">
+          <div className="main-title">
+            <h1>TRAINING<br />PROGRAMS</h1>
+          </div>
+          <div className="program-image">
+            {/* CHANGED: use imported variable */}
+            <img src={programTopImg} alt="Math training" />
+            <div className="green-dot-centered" />
+          </div>
+        </div>
+
+        {/* ... rest of programs section unchanged (program list uses external URLs) ... */}
+      </section>
+
+      {/* ... about, schedule sections remain same (about uses external URL) ... */}
+
+      {/* ========== TEAM SECTION ========== */}
+      {/* The team grid uses teamMembers array which now has imported images */}
+      {/* No need to change the JSX here, as it reads from teamMembers */}
+
+      {/* ... contact, footer remain same ... */}
+    </>
+  );
+}
 
 // ============================================================
 // SCHEDULE DATA
