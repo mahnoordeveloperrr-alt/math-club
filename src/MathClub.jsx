@@ -302,59 +302,6 @@ const programsData = [
   },
 ];
 
-// ... (rest of the code from the component remains the same, but we update the image src in JSX)
-
-export default function MathClub() {
-  // ... all the existing state and effects remain unchanged ...
-
-  // I'm including the full component JSX but only showing the changed image parts.
-  // The rest of the JSX is exactly the same as your original code, except where images are used.
-
-  return (
-    <>
-      {/* Injected CSS */}
-      <style dangerouslySetInnerHTML={{ __html: css }} />
-
-      {/* ... noise overlay, scroll progress, mouse dots, loader, modal ... same as before */}
-
-      {/* ========== HERO SECTION ========== */}
-      <section className="hero grid-bg" id="hero" ref={heroSectionRef}>
-        {/* ... navbar, floating dots ... */}
-
-        <div className="math-image" id="heroImage" ref={heroImageRef}>
-          {/* CHANGED: use imported variable */}
-          <img src={heroImg} alt="Math abstract" />
-        </div>
-
-        {/* ... equations, description, scroll ... */}
-      </section>
-
-      {/* ========== PROGRAMS SECTION ========== */}
-      <section className="programs grid-bg" id="programs" ref={(el) => (sectionRefs.current[0] = el)}>
-        <div className="top-content">
-          <div className="main-title">
-            <h1>TRAINING<br />PROGRAMS</h1>
-          </div>
-          <div className="program-image">
-            {/* CHANGED: use imported variable */}
-            <img src={programTopImg} alt="Math training" />
-            <div className="green-dot-centered" />
-          </div>
-        </div>
-
-        {/* ... rest of programs section unchanged (program list uses external URLs) ... */}
-      </section>
-
-      {/* ... about, schedule sections remain same (about uses external URL) ... */}
-
-      {/* ========== TEAM SECTION ========== */}
-      {/* The team grid uses teamMembers array which now has imported images */}
-      {/* No need to change the JSX here, as it reads from teamMembers */}
-
-      {/* ... contact, footer remain same ... */}
-    </>
-  );
-}
 
 // ============================================================
 // SCHEDULE DATA
