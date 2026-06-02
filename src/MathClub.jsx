@@ -786,7 +786,7 @@ export default function MathClub() {
         </div>
 
         <div className="math-image" id="heroImage" ref={heroImageRef}>
-          <img src="{heroImg}" alt="Math abstract" />
+          <img src={heroImg} alt="Math abstract" />
         </div>
 
         <div className="equations">
@@ -820,7 +820,7 @@ export default function MathClub() {
             </h1>
           </div>
           <div className="program-image">
-            <img src="{programTopImg}" alt="Math training" />
+            <img src="programTopImg" alt="Math training" />
             <div className="green-dot-centered" />
           </div>
         </div>
